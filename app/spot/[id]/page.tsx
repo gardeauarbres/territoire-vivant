@@ -1,7 +1,8 @@
 import { notFound } from "next/navigation";
 import { getSpot } from "@/lib/data";
 import SpotPageClient from "./SpotPageClient";
-export const dynamic = "force-dynamic";
+
+
 
 
 
