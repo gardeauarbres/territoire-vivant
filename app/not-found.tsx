@@ -2,6 +2,8 @@ import Link from 'next/link'
 import { NeonButton } from '@/components/ui/NeonButton'
 import { MapPinOff } from 'lucide-react'
 
+export const dynamic = "force-dynamic";
+
 export default function NotFound() {
     return (
         <div className="min-h-screen bg-slate-950 flex flex-col items-center justify-center p-6 text-center">
