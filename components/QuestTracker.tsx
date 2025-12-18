@@ -77,7 +77,7 @@ export function QuestTracker() {
     const handleAccept = () => {
         playSound("click");
         setActiveQuest(null);
-        window.location.reload(); // Hard reload to ensure data sync and no stuck states
+        router.refresh(); // Refresh data without hard reload
     };
 
     // Valid Early Return strictly for Rendering (Hooks are already called)
