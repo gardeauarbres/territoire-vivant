@@ -10,8 +10,7 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   /* config options here */
   reactStrictMode: true,
-  // Ensure we don't accidentally use static export if Vercel is confused
-  output: undefined,
+  output: "standalone",
 };
 
 export default nextConfig; // withPWA(nextConfig);

@@ -2,7 +2,8 @@ import Link from 'next/link'
 import { NeonButton } from '@/components/ui/NeonButton'
 import { MapPinOff } from 'lucide-react'
 
-export const dynamic = "force-dynamic";
+
+
 
 export default function NotFound() {
     return (

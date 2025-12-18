@@ -1,6 +1,7 @@
 import { ProfileClient } from "@/components/profile/ProfileClient";
 
-export const dynamic = "force-dynamic";
+
+
 import { GalleryGrid } from "@/components/profile/GalleryGrid";
 import { Suspense } from "react";
 import { Loader2 } from "lucide-react";

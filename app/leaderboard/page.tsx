@@ -1,6 +1,7 @@
 import { getLeaderboard } from "@/app/actions/leaderboard";
 
-export const dynamic = "force-dynamic";
+
+
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Trophy, Medal, Crown } from "lucide-react";
 import { BottomDock } from "@/components/ui/BottomDock";
