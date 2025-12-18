@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+:root {
+  /* Nature Neon Palette */
+  --background: #050a06; /* Deep organic dark */
+  --foreground: #e0f2e0; /* Pale tech green */
+
+  /* Neon Accents */
+  --primary: #00ffa3; /* Neon Nature Green */
+  --primary-foreground: #002e1a;
+  --secondary: #00b8ff; /* Water Neon */
+  --secondary-foreground: #002033;
+  --accent: #d400ff; /* Flower Neon */
+  --accent-foreground: #340040;
+  
+  --muted: #0f1f14;
+  --muted-foreground: #6b8e76;
+
+  /* UI Neutral */
+  --card: #0a140d;
+  --card-foreground: #e0f2e0;
+  --border: #1a3322;
+  
+  --radius: 0.75rem;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-border: var(--border);
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+}
+
+/* Base Styles */
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+/* Utilities */
+@layer utilities {
+  .glass {
+    background: rgba(10, 20, 13, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 255, 163, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  .glass-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+  }
+
+  .neon-text {
+    text-shadow: 0 0 10px rgba(0, 255, 163, 0.5), 0 0 20px rgba(0, 255, 163, 0.3);
+  }
+  
+  .neon-border {
+    box-shadow: 0 0 10px rgba(0, 255, 163, 0.2), inset 0 0 10px rgba(0, 255, 163, 0.1);
+  }
+  
+  .text-gradient {
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
