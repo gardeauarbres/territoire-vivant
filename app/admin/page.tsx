@@ -2,6 +2,8 @@ import { getAdminDiscoveries } from "@/app/actions/gallery";
 import { AdminDashboard } from "@/components/admin/AdminDashboard";
 import { Shield } from "lucide-react";
 
+export const dynamic = "force-dynamic";
+
 export default async function AdminPage() {
     // Fetch ALL discoveries (pending, approved, rejected)
     const allDiscoveries = await getAdminDiscoveries();
