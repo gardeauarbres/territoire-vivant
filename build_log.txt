@@ -1,0 +1,129 @@
+﻿
+> territoire-vivant@0.1.0 build
+> next build
+
+node.exe :  ⚠ 
+Warning: Next.js 
+inferred your 
+workspace root, but 
+it may not be correct.
+Au caractère Ligne:1 
+: 1
++ & "C:\Program Files\
+nodejs/node.exe" 
+"C:\Program 
+Files\nodejs/node_mo 
+...
++ ~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
+~~~~~
+    + CategoryInfo    
+          : NotSpeci  
+  fied: ( ⚠ Warning   
+ : Nex...not be co    
+rrect.:String) []    
+, RemoteException
+    + FullyQualifiedE 
+   rrorId : NativeCo  
+  mmandError
+ 
+ We detected multiple 
+lockfiles and 
+selected the 
+directory of 
+C:\Users\Gard Eau Arbr
+es\package-lock.json 
+as the root directory.
+ To silence this 
+warning, set 
+`turbopack.root` in 
+your Next.js config, 
+or consider removing 
+one of the lockfiles 
+if it's not needed.
+   See https://nextjs.
+org/docs/app/api-refer
+ence/config/next-confi
+g-js/turbopack#root-di
+rectory for more 
+information.
+ Detected additional 
+lockfiles: 
+   * C:\Users\Gard 
+Eau 
+Arbres\Desktop\jeu 
+asso appli\package-loc
+k.json
+
+   ▲ Next.js 16.0.8 (Turbopack)
+   - Environments: .env.local
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 4.2s
+   Running TypeScript ...
+Failed to compile.
+
+./components/shop/Shop
+ItemCard.tsx:65:25
+Type error: Type 
+'"outline" | 
+"primary"' is not 
+assignable to type 
+'"primary" | 
+"secondary" | 
+"accent" | "ghost" | 
+undefined'.
+  Type '"outline"' is 
+not assignable to 
+type '"primary" | 
+"secondary" | 
+"accent" | "ghost" | 
+undefined'.
+
+[0m [90m 63 |[39m  
+                      
+ 
+onClick[33m=[39m{() 
+[33m=>[39m onBuy(ite
+m[33m.[39mid)}
+ [90m 64 |[39m      
+                   dis
+abled[33m=[39m{[33m
+![39mcanAfford 
+[33m||[39m isBuying}
+[31m[1m>[22m[39m[
+90m 65 |[39m         
+                varian
+t[33m=[39m{canAfford
+ [33m?[39m 
+[32m"primary"[39m 
+[33m:[39m 
+[32m"outline"[39m}
+ [90m    |[39m      
+                   
+[31m[1m^[22m[39m
+ [90m 66 |[39m      
+                   cla
+ssName[33m=[39m{[33
+m![39mcanAfford 
+[33m?[39m 
+[32m"opacity-50 
+cursor-not-allowed 
+border-red-500/50 
+text-red-500 hover:bg-
+transparent"[39m 
+[33m:[39m 
+[32m""[39m}
+ [90m 67 |[39m      
+               
+[33m>[39m
+ [90m 68 |[39m      
+                   
+{isBuying [33m?[39m 
+[32m"..."[39m 
+[33m:[39m [32m"Ache
+ter"[39m}[0m
+Next.js build worker 
+exited with code: 1 
+and signal: null

@@ -59,10 +59,9 @@ export function ShopItemCard({ item, userCredits, onBuy, isBuying }: ShopItemCar
                     </div>
 
                     <NeonButton
-                        size="sm"
                         onClick={() => onBuy(item.id)}
                         disabled={!canAfford || isBuying}
-                        variant={canAfford ? "primary" : "outline"}
+                        variant={canAfford ? "primary" : "ghost"}
                         className={!canAfford ? "opacity-50 cursor-not-allowed border-red-500/50 text-red-500 hover:bg-transparent" : ""}
                     >
                         {isBuying ? "..." : "Acheter"}

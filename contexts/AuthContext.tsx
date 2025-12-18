@@ -26,6 +26,7 @@ interface AuthContextType {
     isAuthenticated: boolean;
     login: () => void; // Deprecated, strictly for redirect
     logout: () => Promise<void>;
+    refreshProfile: () => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType>({
@@ -34,6 +35,7 @@ const AuthContext = createContext<AuthContextType>({
     isAuthenticated: false,
     login: () => { },
     logout: async () => { },
+    refreshProfile: async () => { },
 });
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
@@ -140,7 +142,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     };
 
     return (
-        <AuthContext.Provider value={{ user, profile, isAuthenticated: !!user, login, logout }}>
+        <AuthContext.Provider value={{ user, profile, isAuthenticated: !!user, login, logout, refreshProfile: () => user ? fetchProfile(user.id) : Promise.resolve() }}>
             {isLoading ? (
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black text-emerald-500">
                     <div className="flex flex-col items-center gap-4">

@@ -17,7 +17,7 @@ interface ShopUIProps {
 
 export function ShopUI({ initialItems, initialInventory }: ShopUIProps) {
     const { profile, refreshProfile } = useAuth();
-    const { showToast } = useToast();
+    const { showNotification } = useToast();
     const { playSound } = useSound();
     const [buyingId, setBuyingId] = useState<string | null>(null);
     const [activeTab, setActiveTab] = useState("tool");
@@ -29,16 +29,16 @@ export function ShopUI({ initialItems, initialInventory }: ShopUIProps) {
         try {
             const result = await buyItem(itemId);
             if (result.success) {
-                showToast(result.message || "Achat réussi !", "success");
+                showNotification(result.message || "Achat réussi !", "success");
                 playSound("buy"); // Audio Feedback
                 await refreshProfile(); // Refresh credits
                 // Ideally also refresh inventory props via router refresh in parent or local state
             } else {
-                showToast(result.error || "Erreur lors de l'achat", "error");
+                showNotification(result.error || "Erreur lors de l'achat", "error");
                 playSound("error");
             }
         } catch (e) {
-            showToast("Erreur inconnue", "error");
+            showNotification("Erreur inconnue", "error");
         } finally {
             setBuyingId(null);
         }
