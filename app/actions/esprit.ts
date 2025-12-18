@@ -2,7 +2,7 @@
 
 import Groq from "groq-sdk";
 
-const groq = new Groq({
+const getGroqClient = () => new Groq({
     apiKey: process.env.GROQ_API_KEY,
 });
 
@@ -32,7 +32,7 @@ export async function askEsprit(userMessage: string, spiritType: SpiritType = 't
     const persona = PERSONAS[spiritType];
 
     try {
-        const completion = await groq.chat.completions.create({
+        const completion = await getGroqClient().chat.completions.create({
             messages: [
                 {
                     role: "system",

@@ -3,7 +3,7 @@
 import { createClient } from "@/utils/supabase/server";
 import Groq from "groq-sdk";
 
-const groq = new Groq({
+const getGroqClient = () => new Groq({
     apiKey: process.env.GROQ_API_KEY,
 });
 
@@ -154,7 +154,7 @@ export async function checkForQuest(lat: number, lng: number) {
             }
         `;
 
-        const completion = await groq.chat.completions.create({
+        const completion = await getGroqClient().chat.completions.create({
             messages: [{ role: "user", content: prompt }],
             model: "llama-3.3-70b-versatile",
             response_format: { type: "json_object" }

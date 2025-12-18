@@ -2,7 +2,7 @@
 
 import Groq from "groq-sdk";
 
-const groq = new Groq({
+const getGroqClient = () => new Groq({
     apiKey: process.env.GROQ_API_KEY,
 });
 
