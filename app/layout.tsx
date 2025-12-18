@@ -8,8 +8,7 @@ import { EspritCompanion } from "@/components/EspritCompanion";
 import { BottomDock } from "@/components/ui/BottomDock";
 import { QuestTracker } from "@/components/QuestTracker";
 
-
-
+export const dynamic = "force-dynamic";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

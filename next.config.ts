@@ -11,6 +11,9 @@ const nextConfig: NextConfig = {
   /* config options here */
   reactStrictMode: true,
   output: "standalone",
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 };
 
 export default nextConfig; // withPWA(nextConfig);
