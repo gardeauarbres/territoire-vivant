@@ -1,4 +1,4 @@
-import BiodexClient from "./BiodexClient";
+import BiodexClient from "@/components/biodex/BiodexClient";
 
 export const dynamic = "force-dynamic";
 
