@@ -7,7 +7,7 @@ import type { NextConfig } from "next";
 //   skipWaiting: true,
 // });
 
-const nextConfig: NextConfig = {
+const nextConfig = {
   /* config options here */
   reactStrictMode: true,
   eslint: {
