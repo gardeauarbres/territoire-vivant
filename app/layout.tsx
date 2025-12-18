@@ -1,15 +1,14 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
-
-
 import { SoundProvider } from "@/hooks/useSound";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { NotificationProvider } from "@/contexts/NotificationContext";
 import { EspritCompanion } from "@/components/EspritCompanion";
 import { BottomDock } from "@/components/ui/BottomDock";
 import { QuestTracker } from "@/components/QuestTracker";
+
+export const dynamic = "force-dynamic";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
