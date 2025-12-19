@@ -16,8 +16,8 @@ export function BottomDock() {
     const navItems = [
         { name: 'Accueil', path: '/', icon: Home },
         { name: 'Carte', path: '/map', icon: Map },
-        { name: 'Scanner', path: '/scanner', icon: QrCode, isFab: true },
         { name: 'Biodex', path: '/biodex', icon: Book },
+        { name: 'Scanner', path: '/scanner', icon: QrCode, isFab: true }, // Centered
         { name: 'Boutique', path: '/shop', icon: ShoppingBag },
         { name: 'Top 50', path: '/leaderboard', icon: Trophy },
         { name: 'Profil', path: '/profile', icon: User },

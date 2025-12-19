@@ -6,7 +6,7 @@ import { ProfileHeader } from "@/components/profile/ProfileHeader";
 import { BadgeGrid } from "@/components/profile/BadgeGrid";
 import { ProfileDetailedStats } from "@/components/profile/ProfileDetailedStats";
 import { NeonButton } from "@/components/ui/NeonButton";
-import { LayoutDashboard, Medal, History, Share2, Settings, Loader2 } from "lucide-react";
+import { LayoutDashboard, Medal, History, Share2, Settings, Loader2, LogOut } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { useRouter } from "next/navigation";
 
@@ -15,7 +15,7 @@ interface ProfileClientProps {
 }
 
 export function ProfileClient({ gallerySlot }: ProfileClientProps) {
-    const { profile, isAuthenticated } = useAuth();
+    const { profile, isAuthenticated, logout } = useAuth();
     const router = useRouter();
     const [isEditing, setIsEditing] = useState(false);
 
@@ -104,6 +104,14 @@ export function ProfileClient({ gallerySlot }: ProfileClientProps) {
                                 <div className="mt-8 flex justify-center gap-4">
                                     <NeonButton variant="primary" icon={Share2}>Partager Profil</NeonButton>
                                     <NeonButton variant="secondary" icon={Settings}>Paramètres</NeonButton>
+                                </div>
+                                <div className="mt-4">
+                                    <button
+                                        onClick={() => logout()}
+                                        className="flex items-center gap-2 mx-auto text-red-400 hover:text-red-300 transition-colors text-sm font-bold uppercase tracking-wider px-4 py-2 rounded-lg hover:bg-red-500/10"
+                                    >
+                                        <LogOut size={16} /> Me déconnecter
+                                    </button>
                                 </div>
                             </div>
                         </motion.div>
