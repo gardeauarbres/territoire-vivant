@@ -7,6 +7,7 @@ import { NotificationProvider } from "@/contexts/NotificationContext";
 import { EspritCompanion } from "@/components/EspritCompanion";
 import { BottomDock } from "@/components/ui/BottomDock";
 import { QuestTracker } from "@/components/QuestTracker";
+import { InstallPrompt } from "@/components/pwa/InstallPrompt";
 
 
 
@@ -61,6 +62,7 @@ export default function RootLayout({
               <BottomDock />
               <EspritCompanion />
               <QuestTracker />
+              <InstallPrompt />
             </SoundProvider>
           </AuthProvider>
         </NotificationProvider>
