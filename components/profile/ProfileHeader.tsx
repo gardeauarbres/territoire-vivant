@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { User, Edit2, Camera, MapPin, Trophy, Shield } from "lucide-react";
+import { User, Edit2, Camera, MapPin, Trophy, Shield, Flame } from "lucide-react";
 import Link from "next/link";
 
 interface ProfileHeaderProps {
@@ -14,6 +14,7 @@ interface ProfileHeaderProps {
     level: number;
     xp: number;
     maxXp: number;
+    streak?: number;
 }
 
 export function ProfileHeader({
@@ -25,7 +26,8 @@ export function ProfileHeader({
     setBio,
     level,
     xp,
-    maxXp
+    maxXp,
+    streak = 0
 }: ProfileHeaderProps) {
     const xpPercentage = (xp / maxXp) * 100;
 
@@ -42,6 +44,12 @@ export function ProfileHeader({
                             <User size={48} />
                         </div>
                     </div>
+                    {/* Streak Badge */}
+                    {streak > 0 && (
+                        <div className="absolute -top-2 -right-2 bg-orange-500/90 border border-orange-400 text-white font-bold px-2 py-1 rounded-full text-xs backdrop-blur-md shadow-[0_0_15px_rgba(249,115,22,0.6)] flex items-center gap-1 z-20 animate-pulse">
+                            <Flame size={12} fill="currentColor" /> {streak}
+                        </div>
+                    )}
                     {/* Level Badge */}
                     <div className="absolute -bottom-2 -right-2 bg-black/80 border border-emerald-500 text-emerald-400 font-bold px-3 py-1 rounded-full text-sm backdrop-blur-md shadow-lg">
                         Lvl {level}

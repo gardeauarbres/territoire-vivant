@@ -54,6 +54,7 @@ export function ProfileClient({ gallerySlot }: ProfileClientProps) {
                     level={profile.level}
                     xp={profile.xp}
                     maxXp={profile.level * 1000}
+                    streak={profile.current_streak}
                 />
             </div>
 

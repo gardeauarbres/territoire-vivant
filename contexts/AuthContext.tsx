@@ -18,6 +18,8 @@ export type Profile = {
     stat_community?: number;
     stat_guardian?: number;
     credits?: number; // Marketplace Currency
+    current_streak?: number;
+    last_streak_at?: string;
 };
 
 interface AuthContextType {
@@ -117,6 +119,60 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
             } else {
                 throw new Error("No profile data found");
             }
+
+            // --- STREAK LOGIC ---
+            const profileData = data as Profile;
+            const now = new Date();
+            const lastStreak = profileData.last_streak_at ? new Date(profileData.last_streak_at) : null;
+
+            let newStreak = profileData.current_streak || 0;
+            let shouldUpdate = false;
+
+            if (!lastStreak) {
+                // First login ever (or since feature added)
+                newStreak = 1;
+                shouldUpdate = true;
+            } else {
+                // Check difference in days
+                const isSameDay = now.toDateString() === lastStreak.toDateString();
+
+                // Check if yesterday (approximate check: < 48h and different day)
+                const oneDay = 24 * 60 * 60 * 1000;
+                const diffTime = now.getTime() - lastStreak.getTime();
+                const isYesterday = diffTime < (2 * oneDay) && !isSameDay && diffTime > 0;
+
+                if (isSameDay) {
+                    // Already logged in today, do nothing
+                    shouldUpdate = false;
+                } else if (isYesterday) {
+                    // Consecutive day!
+                    newStreak += 1;
+                    shouldUpdate = true;
+                } else {
+                    // Streak broken :(
+                    newStreak = 1;
+                    shouldUpdate = true;
+                }
+            }
+
+            if (shouldUpdate) {
+                console.log(`Updating streak: ${profileData.current_streak} -> ${newStreak}`);
+                const { error: updateError } = await supabase
+                    .from('profiles')
+                    .update({
+                        current_streak: newStreak,
+                        last_streak_at: now.toISOString()
+                    })
+                    .eq('id', userId);
+
+                if (!updateError) {
+                    profileData.current_streak = newStreak;
+                    profileData.last_streak_at = now.toISOString();
+                }
+            }
+
+            setProfile(profileData);
+            // --------------------
         } catch (err) {
             console.error("Error fetching profile, using fallback:", err);
             // Fallback for visual consistency if profile missing
