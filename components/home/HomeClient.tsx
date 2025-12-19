@@ -8,6 +8,7 @@ import { NeonButton } from '@/components/ui/NeonButton';
 import { GlassCard } from '@/components/ui/GlassCard';
 import { Map, QrCode, Leaf, Wind, Sun, Award } from 'lucide-react';
 import { createClient } from "@/utils/supabase/client";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export default function HomeClient() {
   const { user, profile, isAuthenticated } = useAuth();
@@ -48,9 +49,37 @@ export default function HomeClient() {
 
   if (!user || !profile) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-slate-950">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-emerald-500"></div>
-      </div>
+      <main className="min-h-screen pb-24 p-6 relative overflow-hidden flex flex-col items-center">
+        {/* Header Skeleton */}
+        <div className="w-full max-w-lg space-y-2 mt-8 mb-8">
+          <div className="flex items-center justify-between">
+            <div>
+              <Skeleton className="h-4 w-32 mb-2" />
+              <Skeleton className="h-8 w-48" />
+            </div>
+            <Skeleton className="w-12 h-12 rounded-full border-2 border-white/5" />
+          </div>
+          <Skeleton className="h-6 w-32 rounded-full" />
+        </div>
+
+        {/* Content Skeleton */}
+        <div className="w-full max-w-lg space-y-6">
+          {/* Active Quest Skeleton */}
+          <Skeleton className="h-48 w-full rounded-xl" />
+
+          {/* Weather/Env Skeleton */}
+          <div className="grid grid-cols-2 gap-4">
+            <Skeleton className="h-24 rounded-xl" />
+            <Skeleton className="h-24 rounded-xl" />
+          </div>
+
+          {/* Shortcuts Skeleton */}
+          <div className="grid grid-cols-2 gap-4 mt-8">
+            <Skeleton className="h-16 rounded-xl" />
+            <Skeleton className="h-16 rounded-xl" />
+          </div>
+        </div>
+      </main>
     );
   }
 

@@ -7,6 +7,7 @@ import { BadgeGrid } from "@/components/profile/BadgeGrid";
 import { ProfileDetailedStats } from "@/components/profile/ProfileDetailedStats";
 import { NeonButton } from "@/components/ui/NeonButton";
 import { LayoutDashboard, Medal, History, Share2, Settings, Loader2, LogOut } from "lucide-react";
+import { Skeleton } from "@/components/ui/skeleton";
 import { useAuth } from "@/contexts/AuthContext";
 import { useRouter } from "next/navigation";
 
@@ -33,9 +34,32 @@ export function ProfileClient({ gallerySlot }: ProfileClientProps) {
 
     if (!profile) {
         return (
-            <div className="min-h-screen flex items-center justify-center">
-                <Loader2 className="w-8 h-8 animate-spin text-emerald-500" />
-            </div>
+            <main className="min-h-screen p-4 md:p-8 pb-24 md:pb-8 flex flex-col items-center max-w-6xl mx-auto space-y-8">
+                {/* Header Skeleton */}
+                <div className="w-full flex flex-col items-center gap-4 mt-8">
+                    <Skeleton className="w-24 h-24 md:w-32 md:h-32 rounded-full border-4 border-slate-800" />
+                    <Skeleton className="h-8 w-48 rounded-lg" />
+                    <Skeleton className="h-4 w-64 rounded-lg" />
+                    <div className="flex gap-4 mt-2">
+                        <Skeleton className="h-8 w-24 rounded-full" />
+                        <Skeleton className="h-8 w-24 rounded-full" />
+                    </div>
+                </div>
+
+                {/* Tabs Skeleton */}
+                <div className="flex w-full justify-center gap-12 border-b border-white/10 pb-4 mt-8">
+                    <Skeleton className="h-6 w-20 rounded" />
+                    <Skeleton className="h-6 w-20 rounded" />
+                    <Skeleton className="h-6 w-20 rounded" />
+                </div>
+
+                {/* Content Skeleton */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full mt-4">
+                    <Skeleton className="h-48 rounded-xl" />
+                    <Skeleton className="h-48 rounded-xl" />
+                    <Skeleton className="h-48 rounded-xl" />
+                </div>
+            </main>
         );
     }
 
